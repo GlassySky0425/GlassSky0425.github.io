@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>Android gradle组件下载失败解决方法</title>
+      <link href="2021/05/05/Android-gradle%E7%BB%84%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"/>
+      <url>2021/05/05/Android-gradle%E7%BB%84%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Android-gradle组件下载失败解决方法"><a href="#Android-gradle组件下载失败解决方法" class="headerlink" title="Android gradle组件下载失败解决方法"></a>Android gradle组件下载失败解决方法</h1><p>1.下载对应网站证书<br>2.使用华为云仓库镜像进行组件下载<br>3.将下载地址中的https改为http，当无网站授权证书时，https访问会被拒绝</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> bug解决 </tag>
+            
+            <tag> Android </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hello World</title>
       <link href="2021/05/03/hello-world/"/>
       <url>2021/05/03/hello-world/</url>
