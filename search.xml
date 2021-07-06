@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>解决echarts多次setOption出现数据错误问题</title>
+      <link href="2021/07/06/%E8%A7%A3%E5%86%B3echarts%E5%A4%9A%E6%AC%A1setOption%E5%87%BA%E7%8E%B0%E6%95%B0%E6%8D%AE%E9%94%99%E8%AF%AF%E9%97%AE%E9%A2%98/"/>
+      <url>2021/07/06/%E8%A7%A3%E5%86%B3echarts%E5%A4%9A%E6%AC%A1setOption%E5%87%BA%E7%8E%B0%E6%95%B0%E6%8D%AE%E9%94%99%E8%AF%AF%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<h1 id="解决echarts多次setOption出现数据错误问题"><a href="#解决echarts多次setOption出现数据错误问题" class="headerlink" title="解决echarts多次setOption出现数据错误问题"></a>解决echarts多次setOption出现数据错误问题</h1><p>在每次使用setOption之前先清空画布，</p><blockquote><p>myChart.clear()<br>myChart.setOption(option)</p></blockquote><p>当需要使用到echarts数据变化过渡动画时不能清空画布，这时需要先判断在哪个阶段不需要清空画布，在画布产生某些属性show变化时再清空画布，可以避免数据出错问题。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> echarts </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>解决js小数计算精度问题</title>
       <link href="2021/07/01/%E8%A7%A3%E5%86%B3js%E5%B0%8F%E6%95%B0%E8%AE%A1%E7%AE%97%E7%B2%BE%E5%BA%A6%E9%97%AE%E9%A2%98/"/>
       <url>2021/07/01/%E8%A7%A3%E5%86%B3js%E5%B0%8F%E6%95%B0%E8%AE%A1%E7%AE%97%E7%B2%BE%E5%BA%A6%E9%97%AE%E9%A2%98/</url>

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="解决js小数计算精度问题, GlassySky">
+    <meta name="keywords" content="解决echarts多次setOption出现数据错误问题, GlassySky">
     <meta name="description" content="As long as the world shall last there will be wrongs, and if no man rebelled, those wrongs would last forever.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>解决js小数计算精度问题 | GlassySky</title>
+    <title>解决echarts多次setOption出现数据错误问题 | GlassySky</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -159,12 +159,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">解决js小数计算精度问题</h1>
+                    <h1 class="description center-align post-title">解决echarts多次setOption出现数据错误问题</h1>
                 </div>
             </div>
         </div>
@@ -280,8 +280,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/javascript/">
-                                <span class="chip bg-color">javascript</span>
+                            <a href="/tags/echarts/">
+                                <span class="chip bg-color">echarts</span>
                             </a>
                         
                     </div>
@@ -296,7 +296,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-07-01
+                    2021-07-06
                 </div>
                 
 
@@ -317,12 +317,11 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="解决js小数计算精度问题"><a href="#解决js小数计算精度问题" class="headerlink" title="解决js小数计算精度问题"></a>解决js小数计算精度问题</h1><p>当进行js小数计算时可能会出现精度问题，如</p>
+                <h1 id="解决echarts多次setOption出现数据错误问题"><a href="#解决echarts多次setOption出现数据错误问题" class="headerlink" title="解决echarts多次setOption出现数据错误问题"></a>解决echarts多次setOption出现数据错误问题</h1><p>在每次使用setOption之前先清空画布，</p>
 <blockquote>
-<p>6.7 + 0.1 != 6.8</p>
+<p>myChart.clear()<br>myChart.setOption(option)</p>
 </blockquote>
-<p>而是等于6.800000005,这时候需要将结果进行乘10的n次幂（n为小数位数）再除以10的n次幂</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">formatNum = <span class="function"><span class="keyword">function</span>(<span class="params">f, digit</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> m = <span class="built_in">Math</span>.pow(<span class="number">10</span>, digit);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">parseInt</span>(f * m, <span class="number">10</span>) / m;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">var</span> num1 = <span class="number">0.1</span>;</span><br><span class="line"><span class="keyword">var</span> num2 = <span class="number">0.2</span>;</span><br><span class="line"><span class="built_in">console</span>.log(num1+num2)</span><br><span class="line"><span class="built_in">console</span>.log(formatNum(num1 + num2, <span class="number">1</span>))</span><br></pre></td></tr></table></figure>
+<p>当需要使用到echarts数据变化过渡动画时不能清空画布，这时需要先判断在哪个阶段不需要清空画布，在画布产生某些属性show变化时再清空画布，可以避免数据出错问题。</p>
 
                 
             </div>
@@ -349,7 +348,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://GlassySky0425.github.io/2021/07/01/%E8%A7%A3%E5%86%B3js%E5%B0%8F%E6%95%B0%E8%AE%A1%E7%AE%97%E7%B2%BE%E5%BA%A6%E9%97%AE%E9%A2%98/">http://GlassySky0425.github.io/2021/07/01/%E8%A7%A3%E5%86%B3js%E5%B0%8F%E6%95%B0%E8%AE%A1%E7%AE%97%E7%B2%BE%E5%BA%A6%E9%97%AE%E9%A2%98/</a>
+                    <a href="http://GlassySky0425.github.io/2021/07/06/%E8%A7%A3%E5%86%B3echarts%E5%A4%9A%E6%AC%A1setOption%E5%87%BA%E7%8E%B0%E6%95%B0%E6%8D%AE%E9%94%99%E8%AF%AF%E9%97%AE%E9%A2%98/">http://GlassySky0425.github.io/2021/07/06/%E8%A7%A3%E5%86%B3echarts%E5%A4%9A%E6%AC%A1setOption%E5%87%BA%E7%8E%B0%E6%95%B0%E6%8D%AE%E9%94%99%E8%AF%AF%E9%97%AE%E9%A2%98/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -387,8 +386,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/javascript/">
-                                    <span class="chip bg-color">javascript</span>
+                                <a href="/tags/echarts/">
+                                    <span class="chip bg-color">echarts</span>
                                 </a>
                             
                         </div>
@@ -611,9 +610,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/07/06/%E8%A7%A3%E5%86%B3echarts%E5%A4%9A%E6%AC%A1setOption%E5%87%BA%E7%8E%B0%E6%95%B0%E6%8D%AE%E9%94%99%E8%AF%AF%E9%97%AE%E9%A2%98/">
                     <div class="card-image">
@@ -631,9 +631,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-07-06
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-06
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -642,6 +642,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -660,13 +661,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/07/01/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A01/">
+                <a href="/2021/07/01/%E8%A7%A3%E5%86%B3js%E5%B0%8F%E6%95%B0%E8%AE%A1%E7%AE%97%E7%B2%BE%E5%BA%A6%E9%97%AE%E9%A2%98/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="解决页面数据重新加载问题">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="解决js小数计算精度问题">
                         
-                        <span class="card-title">解决页面数据重新加载问题</span>
+                        <span class="card-title">解决js小数计算精度问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -689,10 +690,6 @@
                 </div>
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/vue/">
-                        <span class="chip bg-color">vue</span>
-                    </a>
                     
                     <a href="/tags/javascript/">
                         <span class="chip bg-color">javascript</span>
