@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>解决子组件页面重新加载问题</title>
+      <link href="2021/08/26/%E8%A7%A3%E5%86%B3%E5%AD%90%E7%BB%84%E4%BB%B6%E9%A1%B5%E9%9D%A2%E9%87%8D%E6%96%B0%E5%8A%A0%E8%BD%BD%E9%97%AE%E9%A2%98/"/>
+      <url>2021/08/26/%E8%A7%A3%E5%86%B3%E5%AD%90%E7%BB%84%E4%BB%B6%E9%A1%B5%E9%9D%A2%E9%87%8D%E6%96%B0%E5%8A%A0%E8%BD%BD%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<h1 id="解决子组件页面重新加载问题"><a href="#解决子组件页面重新加载问题" class="headerlink" title="解决子组件页面重新加载问题"></a>解决子组件页面重新加载问题</h1><p>进入二级界面，再退出二级界面，然后再进入时，页面不会重新加载数据。<br>这个时候需要使用v-if控制二级界面（弹框）是否加载，在进入时使他的v-if设置为true,退出时将他的v-if设置为false,这个操作将会使该二级界面组件从create到destroy走完整个生命周期。再次进入时界面重新从created生命周期开始。只需要将数据加载放在created里即可完成数据重新加载。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>移动端隐藏滚动条</title>
       <link href="2021/08/26/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%9A%90%E8%97%8F%E6%BB%9A%E5%8A%A8%E6%9D%A1/"/>
       <url>2021/08/26/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%9A%90%E8%97%8F%E6%BB%9A%E5%8A%A8%E6%9D%A1/</url>
