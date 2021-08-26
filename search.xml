@@ -4,6 +4,48 @@
   
     
     <entry>
+      <title>移动端隐藏滚动条</title>
+      <link href="2021/08/26/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%9A%90%E8%97%8F%E6%BB%9A%E5%8A%A8%E6%9D%A1/"/>
+      <url>2021/08/26/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%9A%90%E8%97%8F%E6%BB%9A%E5%8A%A8%E6%9D%A1/</url>
+      
+        <content type="html"><![CDATA[<h1 id="移动端隐藏滚动条"><a href="#移动端隐藏滚动条" class="headerlink" title="移动端隐藏滚动条"></a>移动端隐藏滚动条</h1><p>移动端中设置整个页面宽高分别为100%,页面溢出部分设置为滚动（scroll），设置滚动条样式宽高为0。代码如下所示</p><pre><code>html,body&#123; width: 100%; height: 100%; overflow: scroll;&#125;html::-webkit-scrollbar, body::-webkit-scrollbar&#123;width:0px;height:0px;&#125;body&#123;margin:0;&#125;</code></pre><p>这样移动端右侧滚动条即可隐藏。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> css </tag>
+            
+            <tag> 移动端 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>opacity与z-index的关系</title>
+      <link href="2021/08/26/opacity%E4%B8%8Ez-index%E7%9A%84%E5%85%B3%E7%B3%BB/"/>
+      <url>2021/08/26/opacity%E4%B8%8Ez-index%E7%9A%84%E5%85%B3%E7%B3%BB/</url>
+      
+        <content type="html"><![CDATA[<h1 id="opacity与z-index的关系"><a href="#opacity与z-index的关系" class="headerlink" title="opacity与z-index的关系"></a>opacity与z-index的关系</h1><p>在使用 opacity 属性来实现页面整体透明的时候，发现了一个问题。如果两个层发生了重叠，使用了 opacity 属性并且属性值小于1的层，会覆盖掉后面的层。于是动手做了个实验，来验证 opacity 的层次。 </p><p>网页中的层叠规律是这样的：如果两个层都没有定义 position 属性为 absolute 或者 relative 属性，哪个层的HTML代码放在后面，哪个层就显示在上面。如果指定了 position 属性，并且设置了 z-index 属性，谁的值大，谁就在上面。 </p><p>Opacity 属性引发的层叠问题<br>而对于没有激活 z-index 的普通层来说，如果那个层使用了属性值小于1的 opacity 属性，哪个层就会显示在上面。我们做一个Demo。代码如下： </p><pre><code>&lt;html&gt; &lt;head&gt;     &lt;title &gt;带有 opacity 的层叠问题&lt;/title&gt;     &lt;style&gt;     html&#123;padding:40px;&#125;     .dd&#123;width:100px;height:100px;&#125;     #a&#123;background:red;&#125;     #b&#123;background:blue;margin-left:20px;margin-top:-80px;&#125;     #c&#123;background:green;margin-left:40px;margin-top:-80px;&#125;     &lt;/style&gt; &lt;/head&gt; &lt;body&gt;     &lt;div id=&quot;a&quot;&gt;&lt;/div&gt;     &lt;div id=&quot;b&quot;&gt;&lt;/div&gt;     &lt;div id=&quot;c&quot;&gt;&lt;/div&gt; &lt;/body&gt; &lt;/html&gt; </code></pre><p>保存为 html 文件打开之后，可以看到正常的次序 </p><img src="http://www.bugshouji.com/attachment/1708/thread/26_13_f4f558c097ea22d.png" width="50%"><center>正常的层叠</center> <p>这时候，我们为 #a 加上属性 opacity：0.9 神奇的事情发生了，它覆盖了另外两个层：<br><img src="http://www.bugshouji.com/attachment/1708/thread/26_13_e22583c1c367ea6.png" width="50%"></p><center>加上小于1的 opacity 之后的层叠</center><p>只有当为另一个层（例如：#c）也设置一个小于1的opacity值（例如：0.8）之后，后面的 #c 才能安装正常的规则覆盖在 #a 上面。 </p><img src="http://www.bugshouji.com/attachment/1708/thread/26_13_33f3420f05367e2.png" width="50%"><center>同时为另一个层赋值 opacity </center><p>这样，增加了小于1的 opacity 属性的层，升高了一个层次。至于里面的科学原理，我没有想明白，或许也可能是一个小BUG。但是有时候这种情况是我们不希望发生的。 </p><p>通过定义 position 的属性来解决问题<br>那么如何来解决这个问题呢？前面也说过了，正常的情况下，指定了 position 并且指定了 z-index 值的层，拥有比普通层更高的层次，那么指定 opacity 的层和指定了 position 的层相比呢？我们对 #b 加上 position：relative 看看。这时候的样式代码如下： </p><pre><code>#a&#123;background:red;opacity:0.9;&#125;#b&#123;background:blue;margin-left:20px;margin-top:-80px;position:relative;&#125; #c&#123;background:green;margin-left:40px;margin-top:-80px;opacity:0.8;&#125; </code></pre><p>保存刷新后，看到效果是这样的： </p><img src="http://www.bugshouji.com/attachment/1708/thread/26_13_749c60f6457d15e.png" width="50%"><center>对中层使用了 position 属性之后的层叠效果 </center><p>也就是说，对层使用 position 属性的 relative 之后，可以使其层次和 opacity 相同，这样之后，按照正常的排序进行层叠显示（在后面的实验中，我对 absolute 属性值也做了测试，结果和 relative 属性值表现的相同）。当我们取消了 #c 的 opacity 属性之后，我们可以看到，#c 被排在了最下面。 </p><img src="http://www.bugshouji.com/attachment/1708/thread/26_13_0ddc1cc3c1339e5.png" width="50%"><center>对底层取消 opacity 属性之后的效果</center> <p>还没有完，之前只是对 #b 激活了 position：relative 属性，还没有使用 z-index。我们对 #b 进行了 z-index 的设置（例如：100），很显然的，#b 成为了最顶层。 </p><img src="http://www.bugshouji.com/attachment/1708/thread/26_13_0bdb9c1a9d22dfb.png" width="50%"><center>对中间层设置 z-index 的效果 </center><p>层叠问题总结<br>使用了 position 属性值为 absolute、relative 的层，将会比普通层更高层次。使用了小于1的 opacity 属性的层，也比普通层更高层次并且和指定 position 的层同层，但是不支持 z-index 属性，所以指定 position 的层，可以使用 z-index 属性，来覆盖带有小于1的 opacity 属性的层。” </p><p>转自：<a href="http://www.cnblogs.com/leolovexx/p/5440061.html#3514684">http://www.cnblogs.com/leolovexx/p/5440061.html#3514684</a></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> css </tag>
+            
+            <tag> html </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>解决echarts多次setOption出现数据错误问题</title>
       <link href="2021/07/06/%E8%A7%A3%E5%86%B3echarts%E5%A4%9A%E6%AC%A1setOption%E5%87%BA%E7%8E%B0%E6%95%B0%E6%8D%AE%E9%94%99%E8%AF%AF%E9%97%AE%E9%A2%98/"/>
       <url>2021/07/06/%E8%A7%A3%E5%86%B3echarts%E5%A4%9A%E6%AC%A1setOption%E5%87%BA%E7%8E%B0%E6%95%B0%E6%8D%AE%E9%94%99%E8%AF%AF%E9%97%AE%E9%A2%98/</url>
@@ -27,32 +69,11 @@
       <link href="2021/07/01/%E8%A7%A3%E5%86%B3js%E5%B0%8F%E6%95%B0%E8%AE%A1%E7%AE%97%E7%B2%BE%E5%BA%A6%E9%97%AE%E9%A2%98/"/>
       <url>2021/07/01/%E8%A7%A3%E5%86%B3js%E5%B0%8F%E6%95%B0%E8%AE%A1%E7%AE%97%E7%B2%BE%E5%BA%A6%E9%97%AE%E9%A2%98/</url>
       
-        <content type="html"><![CDATA[<h1 id="解决js小数计算精度问题"><a href="#解决js小数计算精度问题" class="headerlink" title="解决js小数计算精度问题"></a>解决js小数计算精度问题</h1><p>当进行js小数计算时可能会出现精度问题，如</p><blockquote><p>6.7 + 0.1 != 6.8</p></blockquote><p>而是等于6.800000005,这时候需要将结果进行乘10的n次幂（n为小数位数）再除以10的n次幂</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">formatNum = <span class="function"><span class="keyword">function</span>(<span class="params">f, digit</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> m = <span class="built_in">Math</span>.pow(<span class="number">10</span>, digit);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">parseInt</span>(f * m, <span class="number">10</span>) / m;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">var</span> num1 = <span class="number">0.1</span>;</span><br><span class="line"><span class="keyword">var</span> num2 = <span class="number">0.2</span>;</span><br><span class="line"><span class="built_in">console</span>.log(num1+num2)</span><br><span class="line"><span class="built_in">console</span>.log(formatNum(num1 + num2, <span class="number">1</span>))</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h1 id="解决js小数计算精度问题"><a href="#解决js小数计算精度问题" class="headerlink" title="解决js小数计算精度问题"></a>解决js小数计算精度问题</h1><p>当进行js小数计算时可能会出现精度问题，如</p><blockquote><p>6.7 + 0.1 != 6.8</p></blockquote><p>而是等于6.800000005,这时候需要将结果进行乘10的n次幂（n为小数位数）再除以10的n次幂</p><pre><code>formatNum = function(f, digit) &#123;    var m = Math.pow(10, digit);    return parseInt(f * m, 10) / m;&#125;var num1 = 0.1;var num2 = 0.2;console.log(num1+num2)console.log(formatNum(num1 + num2, 1))</code></pre>]]></content>
       
       
       
         <tags>
-            
-            <tag> javascript </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>解决页面数据重新加载问题</title>
-      <link href="2021/07/01/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A01/"/>
-      <url>2021/07/01/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A01/</url>
-      
-        <content type="html"><![CDATA[<h1 id="解决页面数据重新加载问题"><a href="#解决页面数据重新加载问题" class="headerlink" title="解决页面数据重新加载问题"></a>解决页面数据重新加载问题</h1><p>进入二级界面，再退出二级界面，然后再进入时，页面不会重新加载数据。<br>这个时候需要使用v-if控制二级界面（弹框）是否加载，在进入时使他的v-if设置为true,退出时将他的v-if设置为false,这个操作将会使该二级界面组件从create到destroy走完整个生命周期。再次进入时界面重新从created生命周期开始。只需要将数据加载放在created里即可完成数据重新加载。</p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> vue </tag>
             
             <tag> javascript </tag>
             
@@ -78,19 +99,6 @@
             <tag> Android </tag>
             
         </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Hello World</title>
-      <link href="2021/05/03/hello-world/"/>
-      <url>2021/05/03/hello-world/</url>
-      
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-      
-      
       
     </entry>
     
