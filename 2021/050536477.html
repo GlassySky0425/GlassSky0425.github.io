@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -316,15 +316,18 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="Android-gradle组件下载失败解决方法"><a href="#Android-gradle组件下载失败解决方法" class="headerlink" title="Android gradle组件下载失败解决方法"></a>Android gradle组件下载失败解决方法</h1><p>1.下载对应网站证书<br>2.将下载地址中的https改为http，当无网站授权证书时，https访问会被拒绝<br>3.同时使用华为云仓库镜像进行组件下载<br>默认访问地址为https，改为http，因为as没有证书会被拒绝访问。<br>同时使用华为云仓库。gradle配置如下：</p>
-<pre><code>buildscript &#123;
+<pre class="line-numbers language-none"><code class="language-none">buildscript &#123;
     repositories &#123;
-        maven &#123; url &#39;http://mirrors.huaweicloud.com/repository/maven/&#39; &#125;
+        maven &#123; url &#39;http:&#x2F;&#x2F;mirrors.huaweicloud.com&#x2F;repository&#x2F;maven&#x2F;&#39; &#125;
     &#125;
     dependencies &#123;
         classpath &#39;com.android.tools.build:gradle:3.0.1&#39;
@@ -333,11 +336,10 @@
 
 allprojects &#123;
     repositories &#123;
-        maven &#123; url &#39;http://mirrors.huaweicloud.com/repository/maven/&#39; &#125;
-        maven &#123; url &quot;http://jitpack.io&quot; &#125;
+        maven &#123; url &#39;http:&#x2F;&#x2F;mirrors.huaweicloud.com&#x2F;repository&#x2F;maven&#x2F;&#39; &#125;
+        maven &#123; url &quot;http:&#x2F;&#x2F;jitpack.io&quot; &#125;
     &#125;
-&#125;
-</code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -364,7 +366,7 @@ allprojects &#123;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://GlassySky0425.github.io/2021/05/05/Android-gradle%E7%BB%84%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">http://GlassySky0425.github.io/2021/05/05/Android-gradle%E7%BB%84%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</a>
+                    <a href="http://GlassySky0425.github.io/2021/050536477.html">http://GlassySky0425.github.io/2021/050536477.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -634,7 +636,7 @@ allprojects &#123;
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/07/01/%E8%A7%A3%E5%86%B3js%E5%B0%8F%E6%95%B0%E8%AE%A1%E7%AE%97%E7%B2%BE%E5%BA%A6%E9%97%AE%E9%A2%98/">
+                <a href="/2021/070135023.html">
                     <div class="card-image">
                         
                         
@@ -679,7 +681,7 @@ allprojects &#123;
                 本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/2021/05/05/Android-gradle%E7%BB%84%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
+                <a href="/2021/050536477.html">
                     <div class="card-image">
                         
                         
@@ -909,7 +911,7 @@ allprojects &#123;
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2021</span>
+                <span id="year">2019-2022</span>
             
             <span id="year">2019</span>
             <!-- <a href="/about" target="_blank">Zj Zhang</a>
