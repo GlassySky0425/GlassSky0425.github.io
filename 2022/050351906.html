@@ -329,8 +329,222 @@
 <h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h2><img src="../medias/blogImg/excel导出效果图.png" >
 <center>excel导出效果图</center>
 
-<h2 id="sheetjs依赖下载链接"><a href="#sheetjs依赖下载链接" class="headerlink" title="sheetjs依赖下载链接"></a>sheetjs依赖下载链接</h2><p><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1sJHHnqpJPkyvR_Ctkxt_kQ">百度网盘下载链接</a><br>提取码：qb35</p>
-<h2 id="表格合并规则生成"><a href="#表格合并规则生成" class="headerlink" title="表格合并规则生成"></a>表格合并规则生成</h2><p>在进行表格导出excel之前，需要进行合并规则生成，而且这个表格的级数不固定，因此需要先编写一个所有表格合并规则的通解生成函数。这里的合并规则是每一级的指标名称相同项进行合并，后续同一级的权重和分数合并规则与指标名称相同，低级别指标名称要在上一级指标名称的合并范围内进行合并。代码如下。</p>
+<h2 id="sheetjs依赖下载链接"><a href="#sheetjs依赖下载链接" class="headerlink" title="sheetjs依赖下载链接"></a>sheetjs依赖下载链接</h2><p><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1sJHHnqpJPkyvR_Ctkxt_kQ">百度网盘下载链接</a><br>提取码：qb35<br>也可直接通过npm进行安装，</p>
+<pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">npm install xlsx-style<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>复制出安装路径/node_modules/xlsx-style/dist/xlsx.full.min.js文件并引入即可。<br><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/xlsx-style">xlsx-style说明文档</a></p>
+<h2 id="xlsx-style样式配置"><a href="#xlsx-style样式配置" class="headerlink" title="xlsx-style样式配置"></a>xlsx-style样式配置</h2><table>
+<thead>
+<tr>
+<th>样式属性</th>
+<th>子属性</th>
+<th>取值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>fill</td>
+<td>patternType</td>
+<td>“solid” or “none”</td>
+</tr>
+<tr>
+<td></td>
+<td>fgColor</td>
+<td>COLOR_SPEC</td>
+</tr>
+<tr>
+<td></td>
+<td>bgColor</td>
+<td>COLOR_SPEC</td>
+</tr>
+<tr>
+<td>font</td>
+<td>name</td>
+<td>“Calibri” // default</td>
+</tr>
+<tr>
+<td></td>
+<td>sz</td>
+<td>“11” // font size in points</td>
+</tr>
+<tr>
+<td></td>
+<td>color</td>
+<td>COLOR_SPEC</td>
+</tr>
+<tr>
+<td></td>
+<td>bold</td>
+<td>true || false</td>
+</tr>
+<tr>
+<td></td>
+<td>underline</td>
+<td>true || false</td>
+</tr>
+<tr>
+<td></td>
+<td>italic</td>
+<td>true || false</td>
+</tr>
+<tr>
+<td></td>
+<td>strike</td>
+<td>true || false</td>
+</tr>
+<tr>
+<td></td>
+<td>outline</td>
+<td>true || false</td>
+</tr>
+<tr>
+<td></td>
+<td>shadow</td>
+<td>true || false</td>
+</tr>
+<tr>
+<td></td>
+<td>vertAlign</td>
+<td>true || false</td>
+</tr>
+<tr>
+<td>numFmt</td>
+<td></td>
+<td>“0” // integer index to built in formats, see StyleBuilder.SSF property</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>“0.00%” // string matching a built-in format, see StyleBuilder.SSF</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>“0.0%” // string specifying a custom format</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>“0.00%;\\(0.00%\\);\\-;@” // string specifying a custom format, escaping special characters</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>“m/dd/yy” // string a date format using Excel’s format notation</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>vertical</td>
+<td>“bottom”||”center”||”top”</td>
+</tr>
+<tr>
+<td></td>
+<td>horizontal</td>
+<td>“bottom”||”center”||”top”</td>
+</tr>
+<tr>
+<td></td>
+<td>wrapText</td>
+<td>true || false</td>
+</tr>
+<tr>
+<td></td>
+<td>readingOrder</td>
+<td>2 // for right-to-left</td>
+</tr>
+<tr>
+<td></td>
+<td>textRotation</td>
+<td>Number from 0 to 180 or 255 (default is 0)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>90 is rotated up 90 degrees</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>45 is rotated up 45 degrees</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>135 is rotated down 45 degrees</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>180 is rotated down 180 degrees</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>255 is special, aligned vertically</td>
+</tr>
+<tr>
+<td>border</td>
+<td>top</td>
+<td>{ style: BORDER_STYLE, color: COLOR_SPEC }</td>
+</tr>
+<tr>
+<td></td>
+<td>bottom</td>
+<td>{ style: BORDER_STYLE, color: COLOR_SPEC }</td>
+</tr>
+<tr>
+<td></td>
+<td>left</td>
+<td>{ style: BORDER_STYLE, color: COLOR_SPEC }</td>
+</tr>
+<tr>
+<td></td>
+<td>right</td>
+<td>{ style: BORDER_STYLE, color: COLOR_SPEC }</td>
+</tr>
+<tr>
+<td></td>
+<td>diagonal</td>
+<td>{ style: BORDER_STYLE, color: COLOR_SPEC }</td>
+</tr>
+<tr>
+<td></td>
+<td>diagonalUp</td>
+<td>true||false</td>
+</tr>
+<tr>
+<td></td>
+<td>diagonalDown</td>
+<td>true||false</td>
+</tr>
+</tbody></table>
+<p>COLOR_SPEC: </p>
+<ul>
+<li>{ auto: 1} specifying automatic values</li>
+<li>{ rgb: “FFFFAA00” } specifying a hex ARGB value</li>
+<li>{ theme: “1”, tint: “-0.25”} specifying an integer index to a theme color and a tint value (default 0)</li>
+<li>{ indexed: 64} default value for fill.bgColor</li>
+</ul>
+<p>BORDER_STYLE:</p>
+<ul>
+<li>thin</li>
+<li>medium</li>
+<li>thick</li>
+<li>dotted</li>
+<li>hair</li>
+<li>dashed</li>
+<li>mediumDashed</li>
+<li>dashDot</li>
+<li>mediumDashDot</li>
+<li>dashDotDot</li>
+<li>mediumDashDotDot</li>
+<li>slantDashDot</li>
+</ul>
+<h2 id="表格合并规则生成"><a href="#表格合并规则生成" class="headerlink" title="表格合并规则生成"></a>表格合并规则生成</h2><p>在进行表格导出excel之前，需要进行合并规则生成，而且这个表格的级数不固定，因此需要先编写一个所有表格合并规则的通解生成函数。这里的合并规则是每一级的指标名称相同项进行合并，后续同一级的权重和分数合并规则与指标名称相同，低级别指标名称要在上一级指标名称的合并范围内进行合并。</p>
+<p>该合并规则生成的思路是，先以列为单位遍历一列的所有行，如果该行与下一行内容相同则行合并数+1,直到遇到一行与前一行数据不同，则将合并的行数保存到第一个合并格数据中，后续被合并格填充rowspan:0,colspan:0代表该格数据被合并。然后非需要根据规则进行合并的列合并规则保持与前一列相同。</p>
+<p>后续低等级列的该合并单元格合并行数加已经合并的行数需要与前一等级列的当前行已合并行数进行比较。如下图所示。</p>
+<img src="../medias/blogImg/合并行比较示意图.png">
+<center>合并行比较示意图</center>
+
+<p>代码如下。</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//zbColList指标所在列名组成的数组，arr为数组</span>
 <span class="token keyword">function</span> <span class="token function">createRowData</span><span class="token punctuation">(</span><span class="token parameter">arr<span class="token punctuation">,</span> zbColList</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">var</span> mergeRules <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">//合并规则</span>
@@ -394,7 +608,6 @@
                 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token punctuation">&#125;</span>
             rowNumTmp <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'colRules'</span><span class="token punctuation">,</span> colRules<span class="token punctuation">)</span><span class="token punctuation">;</span>
             colRules<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">col<span class="token punctuation">,</span> colIndex</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
                 mergeRules<span class="token punctuation">[</span>colIndex<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> col<span class="token punctuation">;</span>
             <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -456,9 +669,9 @@
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'mergeRules!'</span><span class="token punctuation">,</span> mergeRules<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// console.log('mergeRules!', mergeRules);</span>
     <span class="token keyword">return</span> mergeRules<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="excel导出"><a href="#excel导出" class="headerlink" title="excel导出"></a>excel导出</h2><p>这里使用社区版sheetjs进行excel导出，有以下几个函数需要使用到。</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//获取字符串长度，方便后续导出时设置每列的列宽</span>
 <span class="token keyword">function</span> <span class="token function">getStrLength</span><span class="token punctuation">(</span><span class="token parameter">str</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
