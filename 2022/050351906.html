@@ -325,8 +325,8 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="纯前端导出excel-支持多sheet页及表格样式表格合并"><a href="#纯前端导出excel-支持多sheet页及表格样式表格合并" class="headerlink" title="纯前端导出excel(支持多sheet页及表格样式表格合并)"></a>纯前端导出excel(支持多sheet页及表格样式表格合并)</h1><h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>一个奇怪的需求，使用纯前端进行excel导出操作，且支持多sheet页，每个sheet页分别对应一个表格，而且每个表格都需要支持表格行合并（分多级进行行合并，在内容相同则进行合并的基础上低级的列需要在高级列合并的行范围内合并）。</p>
-<h2 id="解决过程"><a href="#解决过程" class="headerlink" title="解决过程"></a>解决过程</h2><p>一般情况下进行excel导出操作都是后端的事，这次我在网上搜索了很多方法，发现一种可以达到要求。那就是使用sheetjs进行excel导出，该js库是某公司开发完成的。但是这里又有个比较坑的点，那就是这个js库的功能并不是全都开放出来了，如果说想要修改表格的样式，如某个单元格的字体、背景色、是否居中以及行合并、列合并等样式则需要收费使用。这里我又去网上找了一遍，最后发现了一个大佬直接使用sheetjs的社区版本进行导出操作，于是我也沿用了他的方法。</p>
-<h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h2><img src="https://m.qpic.cn/psc?/V54abhsF2OyNpg0ukoNe41vJqy49TeUf/ruAMsa53pVQWN7FLK88i5vkUtvnTxpET8hLuJKkx1fAbnKi.1G1*3R1BHCOiId1lVLXETj7NyPVf5pGvWXwN97md7AK.lAUPYT4ATCCKz*w!/b&bo=DQevAwAAAAADB4Q!&rf=viewer_4" >
+<h2 id="解决过程"><a href="#解决过程" class="headerlink" title="解决过程"></a>解决过程</h2><p>一般情况下进行excel导出操作都是后端的事，这次我在网上搜索了很多方法，发现一种可以达到要求。那就是使用sheetjs进行excel导出，该js库是某公司开发完成的。但是这里又有个比较坑的点，那就是这个js库的功能并不是全都开放出来了，如果说想要修改表格的样式，如某个单元格的字体、背景色、是否居中以及行合并、列合并等样式则需要收费使用。这里我又去网上找了一遍，最后发现了一个大佬直接使用sheetjs的社区版本进行导出操作，于是我也沿用了他的方法。<a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/658214">sheetjs样式及导出方法</a></p>
+<h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h2><img src="../medias/blogImg/excel导出效果图.png" >
 <center>excel导出效果图</center>
 
 <h2 id="sheetjs依赖下载链接"><a href="#sheetjs依赖下载链接" class="headerlink" title="sheetjs依赖下载链接"></a>sheetjs依赖下载链接</h2><p><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1sJHHnqpJPkyvR_Ctkxt_kQ">百度网盘下载链接</a><br>提取码：qb35</p>
