@@ -406,7 +406,7 @@
         },
         xAxis: {
             type: 'category',
-            data: ["2021-05","2021-06","2021-07","2021-08","2021-09","2021-10","2021-11","2021-12","2022-01","2022-02","2022-03","2022-04","2022-05"]
+            data: ["2021-06","2021-07","2021-08","2021-09","2021-10","2021-11","2021-12","2022-01","2022-02","2022-03","2022-04","2022-05","2022-06"]
         },
         yAxis: {
             type: 'value',
@@ -416,7 +416,7 @@
                 name: '文章篇数',
                 type: 'line',
                 color: ['#6772e5'],
-                data: [1,0,2,3,0,0,0,0,0,0,0,0,1],
+                data: [0,2,3,0,0,0,0,0,0,0,0,1,0],
                 markPoint: {
                     symbolSize: 45,
                     color: ['#fa755a','#3ecf8e','#82d3f4'],
@@ -482,7 +482,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["css","移动端","bug解决","Android","html","echarts","sheetjs","excel导出","javascript","vue"]
+                data: ["css","bug解决","Android","html","移动端","sheetjs","excel导出","echarts","javascript","vue"]
             }
         ],
         yAxis: [
@@ -654,18 +654,6 @@
         <div class="tag-chips center-align">
             
             
-            <a href="/blog/tags/css/">
-                <span class="chip center-align waves-effect waves-light chip-default">css</span>
-            </a>
-            
-            
-            
-            <a href="/blog/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/">
-                <span class="chip center-align waves-effect waves-light chip-default">移动端</span>
-            </a>
-            
-            
-            
             <a href="/blog/tags/bug%E8%A7%A3%E5%86%B3/">
                 <span class="chip center-align waves-effect waves-light chip-default">bug解决</span>
             </a>
@@ -678,14 +666,20 @@
             
             
             
+            <a href="/blog/tags/css/">
+                <span class="chip center-align waves-effect waves-light chip-default">css</span>
+            </a>
+            
+            
+            
             <a href="/blog/tags/html/">
                 <span class="chip center-align waves-effect waves-light chip-default">html</span>
             </a>
             
             
             
-            <a href="/blog/tags/echarts/">
-                <span class="chip center-align waves-effect waves-light chip-default">echarts</span>
+            <a href="/blog/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/">
+                <span class="chip center-align waves-effect waves-light chip-default">移动端</span>
             </a>
             
             
@@ -698,6 +692,12 @@
             
             <a href="/blog/tags/excel%E5%AF%BC%E5%87%BA/">
                 <span class="chip center-align waves-effect waves-light chip-default">excel导出</span>
+            </a>
+            
+            
+            
+            <a href="/blog/tags/echarts/">
+                <span class="chip center-align waves-effect waves-light chip-default">echarts</span>
             </a>
             
             
@@ -824,7 +824,7 @@
 </div>
 
 <script src="/blog/libs/aplayer/APlayer.min.js"></script>
-<script src="https://unpkg.com/meting@2/dist/Meting.min.js"></script>
+<script src="./js/Meting.min.js"></script>
 
     
     <div class="container row center-align" style="margin-bottom: 0px !important;">
